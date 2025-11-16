@@ -1,0 +1,28 @@
+{{- range $color := .Values.colors }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-{{ $color }}
+  labels:
+    app: finacplus
+    color: {{ $color }}
+spec:
+  replicas: {{ $.Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: finacplus
+      color: {{ $color }}
+  template:
+    metadata:
+      labels:
+        app: finacplus
+        color: {{ $color }}
+    spec:
+      containers:
+        - name: finacplus
+          image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag }}"
+          imagePullPolicy: {{ $.Values.image.pullPolicy }}
+          ports:
+            - containerPort: 3000
+---
+{{- end }}
