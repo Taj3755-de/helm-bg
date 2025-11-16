@@ -1,0 +1,6 @@
+apiVersion: v2
+name: bluegreen
+description: Blue-Green Deployment Chart for Finacplus App
+type: application
+version: 1.0.0
+appVersion: "1.0.0"
