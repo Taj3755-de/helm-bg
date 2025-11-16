@@ -1,0 +1,17 @@
+replicaCount: 2
+
+image:
+  repository: 157314643992.dkr.ecr.us-east-1.amazonaws.com/finacplus/app-01v
+  tag: "latest"
+  pullPolicy: Always
+
+service:
+  type: LoadBalancer
+  port: 80
+
+# Active version
+liveColor: blue        # change to "green" during deployment
+
+colors:
+  - blue
+  - green
